@@ -46,23 +46,25 @@ const useFormStore = create<FormState>((set, get) => ({
     console.log("Ejecutando fetchUserData...");
     const user = await getUser();
     console.log("Datos del usuario obtenidos:", user);
-    set({
+
+    set((state) => ({
       formState: {
-        name: user.name,
-        lastName: user.lastName,
-        birthDay: user.birthDay,
-        documentType: user.documentType || "DNI",
-        documentNumber: user.documentNumber || "",
-        phone: user.phone || "",
-        privacyPolicy: false,
-        communicationsPolicy: false,
+        ...state.formState, // Mantener los valores actuales del formulario
+        name: user.name || state.formState.name,
+        lastName: user.lastName || state.formState.lastName,
+        birthDay: user.birthDay || state.formState.birthDay,
+        documentType: user.documentType || state.formState.documentType,
+        documentNumber: state.formState.documentNumber, // Mantener el DNI ingresado
+        phone: state.formState.phone, // Mantener el número de celular ingresado
+        privacyPolicy: state.formState.privacyPolicy,
+        communicationsPolicy: state.formState.communicationsPolicy,
       },
-    });
+    }));
   } catch (error) {
     console.error("Error al obtener los datos del usuario:", error);
     throw error; // Lanzar el error para manejarlo en el formulario
   }
-}
+},
 }));
 
 export default useFormStore;

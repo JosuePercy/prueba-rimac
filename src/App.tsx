@@ -22,7 +22,7 @@ function App() {
         return <Home />;
       case "plans":
         return <Plans />;
-      case "summarry": 
+      case "summary": 
         return <Summary />
       default:
         return <Home />;

@@ -8,24 +8,30 @@ import PlanCard from "./components/PlanCard";
 import CotizationMeIcon from "../../shared/components/Icons/CotizationMe";
 import CotizationOtherIcon from "../../shared/components/Icons/CotizationOther";
 import useFormStore from "../../shared/store/useFormStore";
+import useViewStore from "../../shared/store/useViewStore";
 
 function Plans() {
   const { filteredPlans, setSelectedOption, setUserAge } = usePlanStore();
+  const { setCurrentView } = useViewStore();
   const { formState } = useFormStore();
 
-  const [selectedPlan, setSelectedPlan] = useState<"me" | "other" | null>(null); // Estado local para manejar la selección
-  // Ejecutar la lógica del hook usePlans dentro de useEffect
-    
-  usePlans()
+  const [selectedPlan, setSelectedPlan] = useState<"me" | "other" | null>(null);
 
-  // Establecer la edad del usuario al montar el componente
+  usePlans();
+
   useEffect(() => {
     setUserAge(70); // Cambia este valor según la lógica de tu aplicación
   }, [setUserAge]);
 
-  const handleSelectPlan = (plan: "me" | "other") => {
-    setSelectedPlan(plan); // Actualizar el estado local
-    setSelectedOption(plan); // Actualizar el store
+  const handleSelectPlanType = (planType: "me" | "other") => {
+    setSelectedPlan(planType);
+    setSelectedOption(planType);
+  };
+
+  const handleSelectPlanDetails = (plan: { name: string; price: number }) => {
+      console.log("Plan seleccionado para redirecciónsssssss:", plan); // Verificar que la función se ejecuta
+    setSelectedOption(plan.name);
+    setCurrentView("summary");
   };
 
   return (
@@ -45,8 +51,8 @@ function Plans() {
           title="Para mí"
           description="Cotiza tu seguro de salud y agrega familiares si así lo deseas."
           icon={<CotizationMeIcon />}
-          selected={selectedPlan === "me"} // Verificar si este plan está seleccionado
-          onSelect={() => handleSelectPlan("me")} // Manejar la selección
+          selected={selectedPlan === "me"}
+          onSelect={() => handleSelectPlanType("me")}
         />
       </div>
       <div className="cotization__containerother">
@@ -54,13 +60,13 @@ function Plans() {
           title="Para alguien más"
           description="Realiza una cotización para uno de tus familiares o cualquier persona."
           icon={<CotizationOtherIcon />}
-          selected={selectedPlan === "other"} // Verificar si este plan está seleccionado
-          onSelect={() => handleSelectPlan("other")} // Manejar la selección
+          selected={selectedPlan === "other"}
+          onSelect={() => handleSelectPlanType("other")}
         />
       </div>
       {filteredPlans.length > 0 && (
         <div className="cotization__plans">
-          <PlanList plans={filteredPlans} />
+          <PlanList plans={filteredPlans} onSelectPlan={handleSelectPlanDetails} />
         </div>
       )}
     </main>

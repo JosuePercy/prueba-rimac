@@ -7,8 +7,9 @@ type PlanListProps = {
     price: number;
     description: string[];
     age: number;
+    
   }[];
-  onSelectPlan?: (planName: string) => void; // Callback para manejar la selección
+  onSelectPlan?: (plan: { name: string; price: number }) => void; // Callback para manejar la selección
 };
 
 function PlanList({ plans, onSelectPlan }: PlanListProps) {
@@ -18,7 +19,7 @@ function PlanList({ plans, onSelectPlan }: PlanListProps) {
         <PlanListCard
           key={index}
           {...plan} // Usar spread para pasar todas las propiedades del objeto `plan`
-          onSelect={() => onSelectPlan && onSelectPlan(plan.name)} // Callback para manejar la selección
+           onSelect={() => onSelectPlan && onSelectPlan({ name: plan.name, price: plan.price })} // Callback para manejar la selección
         />
       ))}
     </div>

@@ -10,20 +10,20 @@ function Form() {
   const { setCurrentView } = useViewStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Formulario completo:", formState); // Mostrar todas las propiedades del formulario
-    if (validateForm()) {
-      try {
-        await fetchUserData(); // Llamar a la API solo cuando el formulario sea válido
-        setCurrentView("plans"); // Cambiar la vista a "plans"
-      } catch (error) {
-        console.error("Error al obtener los datos del usuario:", error);
-        alert("Hubo un problema al obtener los datos del usuario.");
-      }
-    } else {
-      alert("Por favor, completa todos los campos correctamente.");
+  e.preventDefault();
+  console.log("Formulario completo:", formState); // Mostrar todas las propiedades del formulario
+  if (validateForm()) {
+    try {
+      await fetchUserData(); // Llamar a la API solo cuando el formulario sea válido
+      setCurrentView("plans"); // Cambiar la vista a "plans"
+    } catch (error) {
+      console.error("Error al obtener los datos del usuario:", error);
+      alert("Hubo un problema al obtener los datos del usuario.");
     }
-  };
+  } else {
+    alert("Por favor, completa todos los campos correctamente.");
+  }
+};
 
   return (
     <form className="form" onSubmit={handleSubmit}>
