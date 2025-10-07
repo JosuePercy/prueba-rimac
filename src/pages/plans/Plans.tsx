@@ -39,8 +39,8 @@ function Plans() {
       <div className="cotization__back">
         <button>
           <BackIcon color="#4f4fff" />
+          <span>Volver</span>
         </button>
-        <span>Volver</span>
       </div>
       <div className="cotization__nameuser">
         <h1>{formState.name} ¿Para quién deseas cotizar?</h1>

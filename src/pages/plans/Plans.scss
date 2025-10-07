@@ -9,7 +9,7 @@
   margin: 0 auto;
 
   &__plans {
-    display: flex;  
+    display: flex;
     justify-content: center;
   }
 
@@ -28,23 +28,23 @@
   }
 
   &__back {
-    display: flex;
-    align-items: center;
-
     button {
-      display: flex;
-      background-color: transparent;
-      align-items: center;
+      background: none;
       border: none;
-      outline: none;
       cursor: pointer;
-
-      svg {
-        width: 24px;
-        height: 24px;
-      }
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    span {
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      font-weight: 700;
+      color: #4f4fff;
     }
   }
+
   &__nameuser {
     grid-column: span 4;
     color: #141938;
@@ -85,9 +85,8 @@
     &__plans {
       grid-column: span 12;
     }
-
   }
-  
+
   .cotization__nameuser {
     grid-column: 3 / span 8;
     padding: 50px 0 16px 0;

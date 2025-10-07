@@ -1,12 +1,13 @@
 import "./Summary.scss";
+
 import useFormStore from "../../shared/store/useFormStore";
 import BackIcon from "../../shared/components/Icons/BackIcon";
 import { usePlanStore } from "../../shared/store/usePlanStore";
+import UserSummaryIcon from "../../shared/components/Icons/UserSummary";
 
 function Summary() {
   const { formState } = useFormStore();
   const { selectedPlan } = usePlanStore(); // Acceder al plan seleccionado directamente
-
   // Mostrar en consola la información que se está trayendo
   console.log("Información del formulario:", formState);
   console.log("Plan seleccionado:", selectedPlan);
@@ -14,18 +15,24 @@ function Summary() {
   return (
     <main className="summary">
       <div className="summary__back">
-        <button>
-          <BackIcon color="#4f4fff" />
-        </button>
-        <span>Volver</span>
+        <div className="summary__back_container">
+          <button>
+            <BackIcon color="#4f4fff" />
+            <span color="#4f4fff">Volver</span>
+          </button>
+        </div>
       </div>
-      <h1 className="summary__title">Resumen del seguro</h1>
+      <div className="summary__title">
+        <h1 className="summary__title__text">Resumen del seguro</h1>
+      </div>
       <div className="summary__card">
-        <h5 className="summary__subtitle">PRECIOS CALCULADOS PARA:</h5>
-        <h2 className="summary__name">
-          <span className="summary__icon">👤</span>
-          {formState.name} {formState.lastName}
-        </h2>
+        <div className="summary__header">
+          <span className="summary__subtitle">PRECIOS CALCULADOS PARA:</span>
+          <h2 className="summary__name">
+            <UserSummaryIcon />
+            {formState.name} {formState.lastName}
+          </h2>
+        </div>
         <div className="summary__info">
           <h5>Responsable de pago</h5>
           <p>DNI: {formState.documentNumber}</p>
