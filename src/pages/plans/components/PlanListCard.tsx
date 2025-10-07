@@ -5,11 +5,11 @@ type PlanListCardProps = {
   name: string;
   price: number;
   description: string[];
-  age: number;
+  age?: number;
   onSelect?: () => void; // Callback para manejar la selección del plan
 };
 
-function PlanListCard({ name, price, description, age, onSelect }: PlanListCardProps) {
+function PlanListCard({ name, price, description, onSelect }: PlanListCardProps) {
   return (
     <div className="plan-list-card">
       <div className="plan-list-card__header">
