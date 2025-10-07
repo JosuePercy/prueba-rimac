@@ -18,7 +18,6 @@ function PhoneField() {
           id="phone"
           value={formState.phone}
           onChange={handlePhoneChange}
-          placeholder="Ingrese su número de celular"
           className="phone-field__input"
           maxLength={9}
         />

@@ -12,7 +12,7 @@ function CheckboxField({ name, label }: CheckboxFieldProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const checked = e.target.checked;
     setField(name, checked);
-    validateField(name, checked); // Validar el campo al cambiar su valor
+    validateField(name, checked); 
   };
 
   return (

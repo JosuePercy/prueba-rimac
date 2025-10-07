@@ -36,7 +36,6 @@ function DocumentField() {
               className="document-field__select"
             >
               <option value="DNI">DNI</option>
-              <option value="CE">CE</option>
             </select>
           </div>
           <div className="document-field__input">
