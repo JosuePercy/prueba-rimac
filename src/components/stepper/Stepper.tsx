@@ -3,8 +3,10 @@ import useStepStore from "../../shared/store/useStepStore";
 import "./Stepper.scss";
 import BackIcon from "../../shared/components/Icons/BackIcon";
 import StepsSeparator from "../../shared/components/SeparetorSteps/SeparetorSteps";
+import useViewStore from "../../shared/store/useViewStore";
 
 function Stepper() {
+  const { resetAndGoHome } = useViewStore();
   const { currentStep } = useStepStore(); // Obtener el paso actual desde el store
 
   return (
@@ -19,7 +21,7 @@ function Stepper() {
       {/* Vista móvil */}
       <div className="stepper__mobile">
         <div className="stepper__back">
-           <button>
+           <button onClick={resetAndGoHome} >
             <BackIcon /> 
           </button>
         </div>

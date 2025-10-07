@@ -15,6 +15,7 @@ interface FormState {
   setField: (field: keyof FormState["formState"], value: any) => void;
   validateForm: () => boolean;
   fetchUserData: () => Promise<void>;
+  resetForm: () => void; // Nueva función para limpiar el formulario
 }
 
 const useFormStore = create<FormState>((set, get) => ({
@@ -28,6 +29,7 @@ const useFormStore = create<FormState>((set, get) => ({
     privacyPolicy: false,
     communicationsPolicy: false,
   },
+  
   setField: (field, value) =>
     set((state) => ({
       formState: {
@@ -42,29 +44,42 @@ const useFormStore = create<FormState>((set, get) => ({
     return isDocumentValid && isPhoneValid && privacyPolicy && communicationsPolicy;
   },
   fetchUserData: async () => {
-  try {
-    console.log("Ejecutando fetchUserData...");
-    const user = await getUser();
-    console.log("Datos del usuario obtenidos:", user);
+    try {
+      console.log("Ejecutando fetchUserData...");
+      const user = await getUser();
+      console.log("Datos del usuario obtenidos:", user);
 
-    set((state) => ({
+      set((state) => ({
+        formState: {
+          ...state.formState, // Mantener los valores actuales del formulario
+          name: user.name || state.formState.name,
+          lastName: user.lastName || state.formState.lastName,
+          birthDay: user.birthDay || state.formState.birthDay,
+          documentType: user.documentType || state.formState.documentType,
+          documentNumber: state.formState.documentNumber, // Mantener el DNI ingresado
+          phone: state.formState.phone, // Mantener el número de celular ingresado
+          privacyPolicy: state.formState.privacyPolicy,
+          communicationsPolicy: state.formState.communicationsPolicy,
+        },
+      }));
+    } catch (error) {
+      console.error("Error al obtener los datos del usuario:", error);
+      throw error; // Lanzar el error para manejarlo en el formulario
+    }
+  },
+  resetForm: () =>
+    set(() => ({
       formState: {
-        ...state.formState, // Mantener los valores actuales del formulario
-        name: user.name || state.formState.name,
-        lastName: user.lastName || state.formState.lastName,
-        birthDay: user.birthDay || state.formState.birthDay,
-        documentType: user.documentType || state.formState.documentType,
-        documentNumber: state.formState.documentNumber, // Mantener el DNI ingresado
-        phone: state.formState.phone, // Mantener el número de celular ingresado
-        privacyPolicy: state.formState.privacyPolicy,
-        communicationsPolicy: state.formState.communicationsPolicy,
+        name: "",
+        lastName: "",
+        birthDay: "",
+        documentType: "DNI",
+        documentNumber: "",
+        phone: "",
+        privacyPolicy: false,
+        communicationsPolicy: false,
       },
-    }));
-  } catch (error) {
-    console.error("Error al obtener los datos del usuario:", error);
-    throw error; // Lanzar el error para manejarlo en el formulario
-  }
-},
+    })),
 }));
 
 export default useFormStore;

@@ -4,9 +4,11 @@ import useFormStore from "../../shared/store/useFormStore";
 import BackIcon from "../../shared/components/Icons/BackIcon";
 import { usePlanStore } from "../../shared/store/usePlanStore";
 import UserSummaryIcon from "../../shared/components/Icons/UserSummary";
+import useViewStore from "../../shared/store/useViewStore";
 
 function Summary() {
   const { formState } = useFormStore();
+  const{ resetAndGoHome} = useViewStore()
   const { selectedPlan } = usePlanStore(); // Acceder al plan seleccionado directamente
   // Mostrar en consola la información que se está trayendo
   console.log("Información del formulario:", formState);
@@ -16,7 +18,7 @@ function Summary() {
     <main className="summary">
       <div className="summary__back">
         <div className="summary__back_container">
-          <button>
+          <button onClick={resetAndGoHome}>
             <BackIcon color="#4f4fff" />
             <span color="#4f4fff">Volver</span>
           </button>

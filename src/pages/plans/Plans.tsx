@@ -12,7 +12,7 @@ import useViewStore from "../../shared/store/useViewStore";
 
 function Plans() {
   const { filteredPlans, setSelectedOption, setUserAge } = usePlanStore();
-  const { setCurrentView } = useViewStore();
+  const { setCurrentView, resetAndGoHome } = useViewStore();
   const { formState } = useFormStore();
 
   const [selectedPlan, setSelectedPlan] = useState<"me" | "other" | null>(null);
@@ -37,7 +37,7 @@ function Plans() {
   return (
     <main className="cotization">
       <div className="cotization__back">
-        <button>
+        <button onClick={resetAndGoHome}>
           <BackIcon color="#4f4fff" />
           <span>Volver</span>
         </button>

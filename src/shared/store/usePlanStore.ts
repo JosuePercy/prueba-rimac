@@ -13,6 +13,7 @@ type PlanStore = {
   setSelectedOption: (option: "me" | "other" | string) => void;
   setSelectedPlan: (plan: { name: string; price: number; description: string[]; age: number }) => void;
   filterPlans: () => void;
+  resetPlan: () => void; // Nueva función para limpiar el plan seleccionado
 };
 
 export const usePlanStore = create<PlanStore>((set, get) => ({
@@ -46,4 +47,5 @@ export const usePlanStore = create<PlanStore>((set, get) => ({
 
     set({ filteredPlans: filtered });
   },
+  resetPlan: () => set({ selectedPlan: null, selectedOption: null }),
 }));
