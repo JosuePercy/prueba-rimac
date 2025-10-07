@@ -6,7 +6,7 @@ interface StepState {
 }
 
 const useStepStore = create<StepState>((set) => ({
-  currentStep: 1, // Paso inicial
+  currentStep: 1, 
   setStep: (step) => set({ currentStep: step }),
 }));
 

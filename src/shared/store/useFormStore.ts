@@ -36,7 +36,7 @@ const useFormStore = create<FormState>((set, get) => ({
     privacyPolicy: false,
     communicationsPolicy: false,
   },
-  errors: {}, // Estado para manejar errores
+  errors: {}, 
 
   setField: (field, value) =>
     set((state) => ({
@@ -98,15 +98,13 @@ const useFormStore = create<FormState>((set, get) => ({
       communicationsPolicy: isCommunicationsPolicyAccepted ? undefined : "Debes aceptar las Comunicaciones Comerciales.",
     };
 
-    set({ errors }); // Actualizar los errores en el estado
+    set({ errors }); 
     return isDocumentValid && isPhoneValid && isPrivacyPolicyAccepted && isCommunicationsPolicyAccepted;
   },
 
   fetchUserData: async () => {
     try {
-      console.log("Ejecutando fetchUserData...");
       const user = await getUser();
-      console.log("Datos del usuario obtenidos:", user);
 
       set((state) => ({
         formState: {
@@ -139,7 +137,7 @@ const useFormStore = create<FormState>((set, get) => ({
         privacyPolicy: false,
         communicationsPolicy: false,
       },
-      errors: {}, // Limpiar los errores
+      errors: {}, 
     })),
 }));
 

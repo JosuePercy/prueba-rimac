@@ -7,7 +7,7 @@ function PhoneField() {
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setField("phone", value);
-    validateField("phone", value); // Validar el campo
+    validateField("phone", value); 
   };
 
   return (

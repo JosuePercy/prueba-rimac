@@ -20,7 +20,7 @@ function Plans() {
   usePlans();
 
   useEffect(() => {
-    setUserAge(70); // Cambia este valor según la lógica de tu aplicación
+    setUserAge(70); 
   }, [setUserAge]);
 
   const handleSelectPlanType = (planType: "me" | "other") => {
@@ -29,7 +29,6 @@ function Plans() {
   };
 
   const handleSelectPlanDetails = (plan: { name: string; price: number }) => {
-      console.log("Plan seleccionado para redirecciónsssssss:", plan); // Verificar que la función se ejecuta
     setSelectedOption(plan.name);
     setCurrentView("summary");
   };

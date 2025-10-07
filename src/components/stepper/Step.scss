@@ -14,21 +14,21 @@
     border-radius: 50%;
     font-size: 0.9rem;
     font-weight: bold;
-    color: #5e6488; // Color por defecto del texto dentro del círculo
+    color: #5e6488; 
 
     &--active {
-      border-color: #4f4fff; // Cambiar el borde del círculo
-      background-color: #4f4fff; // Cambiar el fondo del círculo
-      color: #fff; // Cambiar el color del texto dentro del círculo
+      border-color: #4f4fff; 
+      background-color: #4f4fff; 
+      color: #fff; 
     }
   }
 
   &__label {
     font-size: 1rem;
-    color: #7981b2; // Color por defecto (inactivo)
+    color: #7981b2; 
 
     &--active {
-      color: #000000; // Color negro para el texto activo
+      color: #000000; 
       font-weight: bold;
     }
   }

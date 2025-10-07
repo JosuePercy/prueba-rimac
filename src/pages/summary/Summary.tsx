@@ -9,10 +9,7 @@ import useViewStore from "../../shared/store/useViewStore";
 function Summary() {
   const { formState } = useFormStore();
   const{ resetAndGoHome} = useViewStore()
-  const { selectedPlan } = usePlanStore(); // Acceder al plan seleccionado directamente
-  // Mostrar en consola la información que se está trayendo
-  console.log("Información del formulario:", formState);
-  console.log("Plan seleccionado:", selectedPlan);
+  const { selectedPlan } = usePlanStore(); 
 
   return (
     <main className="summary">

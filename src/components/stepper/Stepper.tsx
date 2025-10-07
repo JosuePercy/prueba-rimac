@@ -7,18 +7,17 @@ import useViewStore from "../../shared/store/useViewStore";
 
 function Stepper() {
   const { resetAndGoHome } = useViewStore();
-  const { currentStep } = useStepStore(); // Obtener el paso actual desde el store
+  const { currentStep } = useStepStore(); 
 
   return (
     <div className="stepper">
-      {/* Vista de escritorio */}
+
       <div className="stepper__desktop">
         <Step step={1} label="Planes y coberturas" isActive={currentStep === 1} />
         <StepsSeparator active={currentStep === 1} />
         <Step step={2} label="Resumen" isActive={currentStep === 2} />
       </div>
 
-      {/* Vista móvil */}
       <div className="stepper__mobile">
         <div className="stepper__back">
            <button onClick={resetAndGoHome} >
@@ -29,7 +28,7 @@ function Stepper() {
         <div className="stepper__progress-bar">
           <div
             className="stepper__progress-bar__fill"
-            style={{ width: `${(currentStep / 2) * 100}%` }} // Cálculo dinámico
+            style={{ width: `${(currentStep / 2) * 100}%` }} 
           ></div>
         </div>
       </div>

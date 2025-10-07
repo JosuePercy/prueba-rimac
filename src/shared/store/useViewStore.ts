@@ -1,22 +1,22 @@
 import { create } from "zustand";
-import useFormStore from "./useFormStore"; // Importar el store completo
-import { usePlanStore } from "./usePlanStore"; // Use named import
+import useFormStore from "./useFormStore"; 
+import { usePlanStore } from "./usePlanStore"; 
 
 interface ViewState {
   currentView: string;
   setCurrentView: (view: string) => void;
-  resetAndGoHome: () => void; // Nueva función global
+  resetAndGoHome: () => void; 
 }
 
 const useViewStore = create<ViewState>((set) => ({
-  currentView: "home", // Vista inicial
+  currentView: "home", 
   setCurrentView: (view) => set({ currentView: view }),
   resetAndGoHome: () => {
-    const { resetForm } = useFormStore.getState(); // Acceder a la función para resetear el formulario
-    const { resetPlan } = usePlanStore.getState(); // Acceder a la función para resetear el plan
-    resetForm(); // Limpiar la información del formulario
-    resetPlan(); // Limpiar la información del plan seleccionado
-    set({ currentView: "home" }); // Cambiar la vista a "home"
+    const { resetForm } = useFormStore.getState(); 
+    const { resetPlan } = usePlanStore.getState(); 
+    resetForm(); 
+    resetPlan(); 
+    set({ currentView: "home" }); 
   },
 }));
 

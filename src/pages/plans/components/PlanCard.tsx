@@ -55,7 +55,6 @@ function PlanCard({
         <div className="plan-card__header">
           <div className="plan-card__icon">{icon}</div>
           <h5 className="plan-card__header__title">{title}</h5>{" "}
-          {/* Cambiar la clase */}
         </div>
         <p className="plan-card__description">{description}</p>
       </div>

@@ -9,12 +9,12 @@ export function usePlans() {
     async function fetchPlans() {
       try {
         const data = await getPlans();
-        setPlans(data.list); // Guardar todos los planes en el store
-        filterPlans(); // Filtrar los planes según la edad y la opción seleccionada
+        setPlans(data.list);
+        filterPlans();
       } catch (err) {
         console.error("Error al cargar los planes");
       }
     }
     fetchPlans();
-  }, []); // Eliminar dependencias innecesarias para evitar múltiples ejecuciones
+  }, []); 
 }

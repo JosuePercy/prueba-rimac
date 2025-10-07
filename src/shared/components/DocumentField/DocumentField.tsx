@@ -4,18 +4,10 @@ import "./DocumentField.scss";
 function DocumentField() {
   const { formState, setField, validateField } = useFormStore();
 
-  /*   const handleDocumentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    // Validar que solo se permitan números y limitar a 8 caracteres
-    if (/^\d*$/.test(value) && value.length <= 8) {
-      setField("documentNumber", value);
-    }
-  }; */
-
   const handleDocumentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setField("documentNumber", value);
-    validateField("documentNumber", value); // Validar el campo
+    validateField("documentNumber", value);
   };
 
   const handleDocumentTypeChange = (

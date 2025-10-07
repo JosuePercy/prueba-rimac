@@ -13,7 +13,6 @@ function App() {
   const { setStep } = useStepStore();
 
   useEffect(() => {
-    // Sincronizar el paso con la vista actual
     switch (currentView) {
       case "home":
         setStep(1);
@@ -27,7 +26,7 @@ function App() {
       default:
         setStep(1);
     }
-  }, [currentView, setStep]); // Ejecutar cada vez que cambie la vista
+  }, [currentView, setStep]); 
 
  const renderView = () => {
     switch (currentView) {

@@ -9,18 +9,18 @@
     gap: 16px;
 
     @media screen and (max-width: 768px) {
-      display: none; // Ocultar en dispositivos móviles
+      display: none; 
     }
   }
 
   &__mobile {
-    display: none; // Ocultar en escritorio
+    display: none; 
 
     @media screen and (max-width: 768px) {
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 12px; // Ajustar espacio entre elementos
+      gap: 12px; 
     }
 
     .stepper__progress-bar {
@@ -40,8 +40,8 @@
   }
 
   &__text {
-    font-size: 10px; // Reducir tamaño del texto
-    font-weight: bold; // Aplicar negrita
+    font-size: 10px; 
+    font-weight: bold; 
     color: #5e6488;
     text-wrap: nowrap;
   }

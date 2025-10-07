@@ -6,17 +6,17 @@ import useFormStore from "../../shared/store/useFormStore";
 import useViewStore from "../../shared/store/useViewStore";
 
 function Form() {
-  const { validateForm, fetchUserData, formState, errors } = useFormStore(); // Agregar acceso a los errores
+  const { validateForm, fetchUserData, formState, errors } = useFormStore(); 
 
   const { setCurrentView } = useViewStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulario completo:", formState); // Mostrar todas las propiedades del formulario
+   
     if (validateForm()) {
       try {
-        await fetchUserData(); // Llamar a la API solo cuando el formulario sea válido
-        setCurrentView("plans"); // Cambiar la vista a "plans"
+        await fetchUserData(); 
+        setCurrentView("plans"); 
       } catch (error) {
         console.error("Error al obtener los datos del usuario:", error);
       }

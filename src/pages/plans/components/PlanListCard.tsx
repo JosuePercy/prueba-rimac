@@ -5,10 +5,10 @@ import { usePlanStore } from "../../../shared/store/usePlanStore";
 type PlanListCardProps = {
   name: string;
   price: number;
-  originalPrice?: number; // Precio original antes del descuento
+  originalPrice?: number; 
   description: string[];
   age: number;
-  onSelect?: () => void; // Callback para manejar la selección del plan
+  onSelect?: () => void;
 };
 
 function PlanListCard({ name, price, originalPrice, description, age, onSelect }: PlanListCardProps) {
@@ -16,7 +16,6 @@ function PlanListCard({ name, price, originalPrice, description, age, onSelect }
 
   const handleClick = () => {
     const selectedPlan = { name, price, description, age };
-    console.log("Plan seleccionado:", selectedPlan);
     setSelectedPlan(selectedPlan);
   };
 
@@ -43,7 +42,6 @@ function PlanListCard({ name, price, originalPrice, description, age, onSelect }
       <button
         className="plan-list-card__button"
         onClick={() => {
-          console.log("Botón presionado para seleccionar el plan:", { name, price });
           if (onSelect) {
             handleClick();
             onSelect();
