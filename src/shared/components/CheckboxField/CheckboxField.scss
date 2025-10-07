@@ -1,0 +1,40 @@
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 8px;
+
+  &__input {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    margin: 0;
+    cursor: pointer;
+    appearance: none;
+    background-color: transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+
+    &:checked {
+      background-color: #000;
+      border-color: #000;
+    }
+
+    &:checked::before {
+      content: "✔";
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      line-height: 20px;
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+    text-align: left;
+  }
+}

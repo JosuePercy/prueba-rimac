@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__group {
+    gap: 1rem;
+    display: flex;
+  }
+
+  &__submit {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    padding: 20px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #222;
+    }
+  }
+
+  &__policy-title {
+    margin: 0;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form {
+    display: grid;
+    row-gap: 16px;
+    max-width: 352px;
+  }
+}
+
+@media (min-width: 768px) {
+  .form__submit {
+    width: max-content;
+  }
+}

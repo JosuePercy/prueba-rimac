@@ -1,0 +1,27 @@
+.phone-field {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #f8f9ff;
+  border-radius: 8px;
+  border: 1px solid #5e6488;
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    background-color: transparent;
+    color: #03050f;
+    border: none;
+    font-size: 16px;
+    line-height: 24px;
+    outline: none;
+  }
+   label {
+    font-size: 12px;
+    line-height: 16px;
+    color: #5e6488;
+  }
+
+  &__input:focus {
+    border-color: #4f4fff;
+  }
+}

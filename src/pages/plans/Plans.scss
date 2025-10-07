@@ -1,0 +1,130 @@
+.cotization {
+  font-family: "Lato", sans-serif;
+  padding: 40px 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 16px;
+  row-gap: 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+
+  &__plans {
+    display: flex;  
+    justify-content: center;
+  }
+
+  &__containerme {
+    grid-column: span 4;
+    margin-top: 16px;
+  }
+
+  &__plans {
+    grid-column: span 4;
+  }
+
+  &__containerother {
+    grid-column: span 4;
+    margin-top: 8px;
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+
+    button {
+      display: flex;
+      background-color: transparent;
+      align-items: center;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  &__nameuser {
+    grid-column: span 4;
+    color: #141938;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.6px;
+    font-weight: 700;
+    h1 {
+      font-size: 28px;
+      line-height: 36px;
+      letter-spacing: -0.6px;
+      font-weight: 700;
+    }
+    h5 {
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 0.1px;
+      font-weight: 400;
+      margin-top: 8px;
+    }
+  }
+}
+
+.cotization__back {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .cotization {
+    grid-template-columns: repeat(12, 1fr);
+
+    &__back {
+      grid-column: 2 / span 10;
+      display: flex;
+      gap: 8px;
+    }
+
+    &__plans {
+      grid-column: span 12;
+    }
+
+  }
+  
+  .cotization__nameuser {
+    grid-column: 3 / span 8;
+    padding: 50px 0 16px 0;
+
+    h1 {
+      font-size: 40px;
+      line-height: 48px;
+      letter-spacing: -0.6px;
+      text-align: center;
+    }
+
+    h5 {
+      text-align: center;
+    }
+  }
+  .cotization__containerme {
+    grid-column: 3 / span 4;
+  }
+  .cotization__containerother {
+    grid-column: 7 / span 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cotization__back {
+    grid-column: 3 / span 9;
+  }
+  .cotization__nameuser {
+    grid-column: 4 / span 6;
+  }
+  .cotization__containerme {
+    grid-column: 4 / span 3;
+  }
+  .cotization__containerother {
+    grid-column: 7 / span 3;
+  }
+  .cotization__plans {
+    grid-column: 1 / span 12;
+  }
+}

@@ -1,0 +1,67 @@
+.stepper {
+  width: 100%;
+  background: #edeffc;
+  padding: 16px 12px;
+
+  &__desktop {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    @media screen and (max-width: 768px) {
+      display: none; // Ocultar en dispositivos móviles
+    }
+  }
+
+  &__mobile {
+    display: none; // Ocultar en escritorio
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px; // Ajustar espacio entre elementos
+    }
+
+    .stepper__progress-bar {
+      width: 100%;
+      height: 8px;
+      background-color: #e0e4fa;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .stepper__progress-bar__fill {
+        height: 100%;
+        background-color: #4f4fff;
+        border-radius: 4px;
+        transition: width 0.3s ease;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 10px; // Reducir tamaño del texto
+    font-weight: bold; // Aplicar negrita
+    color: #5e6488;
+    text-wrap: nowrap;
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+
+    button {
+      display: flex;
+      background-color: transparent;
+      align-items: center;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
