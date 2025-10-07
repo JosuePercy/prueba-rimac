@@ -31,21 +31,24 @@ export const usePlanStore = create<PlanStore>((set, get) => ({
   },
   setSelectedPlan: (plan) => set({ selectedPlan: plan }), // Actualizar el plan seleccionado
   filterPlans: () => {
-    const { plans, userAge, selectedOption, discount } = get();
-    if (!userAge || !selectedOption) {
-      set({ filteredPlans: [] });
-      return;
-    }
+  const { plans, userAge, selectedOption, discount } = get();
+  if (!userAge || !selectedOption) {
+    set({ filteredPlans: [] });
+    return;
+  }
 
-    const filtered = plans
-      .filter((plan) => userAge <= plan.age)
-      .map((plan) =>
-        selectedOption === "other"
-          ? { ...plan, price: plan.price * (1 - discount) }
-          : plan
-      );
+  const filtered = plans
+    .filter((plan) => userAge <= plan.age) // Mantener la lógica de filtrado por edad
+    .map((plan) => {
+      const discountedPrice = selectedOption === "other" ? plan.price * (1 - discount) : plan.price;
+      return {
+        ...plan,
+        price: discountedPrice, // Precio con descuento
+        originalPrice: selectedOption === "other" ? plan.price : undefined, // Precio original solo si hay descuento
+      };
+    });
 
-    set({ filteredPlans: filtered });
-  },
+  set({ filteredPlans: filtered });
+},
   resetPlan: () => set({ selectedPlan: null, selectedOption: null }),
 }));

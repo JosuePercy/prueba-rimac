@@ -34,9 +34,7 @@ function PlanCardCheck({ selected }: { selected?: boolean }) {
       </svg>
     );
   }
-  return (
-    <div className="plan-card__check-circle"></div>
-  );
+  return <div className="plan-card__check-circle"></div>;
 }
 
 function PlanCard({
@@ -46,9 +44,7 @@ function PlanCard({
   selected,
   onSelect,
 }: PlanCardProps) {
-  const cardClass = selected
-    ? "plan-card plan-card--selected"
-    : "plan-card";
+  const cardClass = selected ? "plan-card plan-card--selected" : "plan-card";
 
   return (
     <div className={cardClass} onClick={onSelect}>
@@ -58,7 +54,8 @@ function PlanCard({
       <div className="plan-card__body">
         <div className="plan-card__header">
           <div className="plan-card__icon">{icon}</div>
-          <h5 className="plan-card__title">{title}</h5>
+          <h5 className="plan-card__header__title">{title}</h5>{" "}
+          {/* Cambiar la clase */}
         </div>
         <p className="plan-card__description">{description}</p>
       </div>

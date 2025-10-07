@@ -45,8 +45,7 @@ function DocumentField() {
               type="text"
               value={formState.documentNumber}
               onChange={handleDocumentChange}
-              placeholder="987654321"
-              maxLength={8} // Limitar la entrada a 8 caracteres
+              maxLength={8} 
             />
           </div>
         </div>
