@@ -1,4 +1,7 @@
 import Form from "../../components/form/Form";
+
+import familyImage from "../../assets/family.png";
+
 import "./Home.scss";
 
 function Home() {
@@ -6,7 +9,7 @@ function Home() {
     <>
       <main className="home">
         <div className="home__image">
-          <img src="src/assets/family.png" alt="Familia" />
+          <img src={familyImage} alt="Familia" />
         </div>
         <div className="home__content">
           <div className="presentation">
@@ -15,7 +18,7 @@ function Home() {
                 <span>Seguro Salud Flexible</span>
                 <h1>Creado para ti y tu familia</h1>
               </div>
-              <img src="src/assets/family.png" alt="Familia" />
+              <img src={familyImage} alt="Familia" />
             </div>
             <div className="presentation__separator" />
             <h5 className="presentation__description">

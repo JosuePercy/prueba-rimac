@@ -1,11 +1,13 @@
 import './Header.scss';
 
+import logoImage from "../../assets/logo.png";
+
 function Header() {
   return (
     <header className="header-container">
       <div className="header">
         <div className="header__logo">
-          <img src="src/assets/logo.png" alt="Rimac Logo" />
+          <img src={logoImage} alt="Rimac Logo" />
         </div>
         <div className="header__contact">
           <span>¡Compra por este medio!</span>
