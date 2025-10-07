@@ -89,7 +89,7 @@ Es importante porque confirma la información antes de finalizar el proceso.
 
 ## **4. Instalación y Ejecución**
 # 1. Clonar el repositorio
-```git clone https://github.com/tuusuario/frontend-challenge.git```
+```git clone https://github.com/JosuePercy/prueba-rimac.git```
 
 # 2. Instalar dependencias
 ```npm install```
