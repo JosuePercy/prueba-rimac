@@ -35,6 +35,14 @@
     outline: none;
     cursor: pointer;
   }
+
+  .phone-field__error {
+    font-size: 12px;
+    color: red;
+    margin-top: 4px;
+    position: relative; /* Asegura que el mensaje se mantenga cerca del campo */
+    top: -4px; /* Ajusta la posición para que no desplace otros elementos */
+}
 }
 
 .document-field__input {
@@ -59,4 +67,14 @@
     outline: none;
     width: 100%;
   }
+
+
+
+}
+.phone-field__error {
+    font-size: 12px;
+    color: red;
+    margin-top: 4px;
+    position: relative; /* Asegura que el mensaje se mantenga cerca del campo */
+    top: -4px; /* Ajusta la posición para que no desplace otros elementos */
 }

@@ -6,34 +6,43 @@ import useFormStore from "../../shared/store/useFormStore";
 import useViewStore from "../../shared/store/useViewStore";
 
 function Form() {
-  const { validateForm, fetchUserData, formState } = useFormStore();
+  const { validateForm, fetchUserData, formState, errors } = useFormStore(); // Agregar acceso a los errores
+
   const { setCurrentView } = useViewStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  console.log("Formulario completo:", formState); // Mostrar todas las propiedades del formulario
-  if (validateForm()) {
-    try {
-      await fetchUserData(); // Llamar a la API solo cuando el formulario sea válido
-      setCurrentView("plans"); // Cambiar la vista a "plans"
-    } catch (error) {
-      console.error("Error al obtener los datos del usuario:", error);
-      alert("Hubo un problema al obtener los datos del usuario.");
+    e.preventDefault();
+    console.log("Formulario completo:", formState); // Mostrar todas las propiedades del formulario
+    if (validateForm()) {
+      try {
+        await fetchUserData(); // Llamar a la API solo cuando el formulario sea válido
+        setCurrentView("plans"); // Cambiar la vista a "plans"
+      } catch (error) {
+        console.error("Error al obtener los datos del usuario:", error);
+      }
     }
-  } else {
-    alert("Por favor, completa todos los campos correctamente.");
-  }
-};
+  };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      {Object.values(errors).length > 0 && (
+        <div className="form__errors">
+          {errors.documentNumber && <p>{errors.documentNumber}</p>}
+          {errors.phone && <p>{errors.phone}</p>}
+          {errors.privacyPolicy && <p>{errors.privacyPolicy}</p>}
+          {errors.communicationsPolicy && <p>{errors.communicationsPolicy}</p>}
+        </div>
+      )}
       <div className="form__group">
         <DocumentField />
       </div>
       <div className="form__group">
         <PhoneField />
       </div>
-      <CheckboxField name="privacyPolicy" label="Acepto la Política de Privacidad" />
+      <CheckboxField
+        name="privacyPolicy"
+        label="Acepto la Política de Privacidad"
+      />
       <CheckboxField
         name="communicationsPolicy"
         label="Acepto la Política Comunicaciones Comerciales"

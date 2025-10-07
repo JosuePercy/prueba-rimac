@@ -1,6 +1,6 @@
 import Form from "../../components/form/Form";
 
-import familyImage from "../../assets/family.png";
+import familyImage from "../../assets/family.webp";
 
 import "./Home.scss";
 

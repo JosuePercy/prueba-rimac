@@ -7,12 +7,12 @@ interface CheckboxFieldProps {
 }
 
 function CheckboxField({ name, label }: CheckboxFieldProps) {
-  const { formState, setField } = useFormStore();
+  const { formState, setField, validateField } = useFormStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const checked = e.target.checked;
-    console.log(`${name}:`, checked); // Mostrar el valor en la consola
     setField(name, checked);
+    validateField(name, checked); // Validar el campo al cambiar su valor
   };
 
   return (

@@ -34,6 +34,20 @@
     text-decoration: underline;
     font-weight: 600;
   }
+
+  &__errors { /* Cambiar de &.form__errors a &__errors */
+    background-color: #fff4f4;
+    border: 1px solid #ffcccc;
+    border-radius: 8px;
+    padding: 4px 10px;
+    color: #d8000c;
+    font-size: 12px;
+
+    p {
+      margin: 0;
+      padding: 4px 0;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
