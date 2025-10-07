@@ -6,7 +6,7 @@ import useFormStore from "../../shared/store/useFormStore";
 import useViewStore from "../../shared/store/useViewStore";
 
 function Form() {
-  const { validateForm, fetchUserData, formState, errors } = useFormStore(); 
+  const { validateForm, fetchUserData, errors } = useFormStore(); 
 
   const { setCurrentView } = useViewStore();
 
